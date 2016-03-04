@@ -67,14 +67,12 @@ namespace TeamCityBackup
                 return true;
             }
 
-            var clean = new Clean(options);
-            return clean.Run();
+            return new Clean(options).Run();
         }
 
         private static bool Backup(Options options)
         {
-            var backup = new Backup(options);
-            return backup.Run();
+            return new Backup(options).Run();
         }
 
         private static string FileNameWithoutExtension

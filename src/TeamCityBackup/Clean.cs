@@ -6,6 +6,9 @@ using System.Security;
 
 namespace TeamCityBackup
 {
+    /// <summary>
+    /// Command that cleans the backup directory by removing old backup files.
+    /// </summary>
     public class Clean
     {
         private readonly Options options;

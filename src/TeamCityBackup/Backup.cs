@@ -4,6 +4,10 @@ using System.Text;
 
 namespace TeamCityBackup
 {
+    /// <summary>
+    /// Command that is performing a backup of TeamCity and saves the backup to the backup
+    /// directory.
+    /// </summary>
     public class Backup
     {
         private readonly Options options;

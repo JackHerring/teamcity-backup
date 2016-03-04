@@ -3,6 +3,9 @@ using Plossum.CommandLine;
 
 namespace TeamCityBackup
 {
+    /// <summary>
+    /// Class defining the command line options.
+    /// </summary>
     [CommandLineManager(EnabledOptionStyles = OptionStyles.Windows)]
     public class Options
     {
