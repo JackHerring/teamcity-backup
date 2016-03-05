@@ -56,7 +56,7 @@ Options:
 
 ```
 
-Of these options only three are mandatory:
+Out of these options only three are mandatory:
 
 - __server__ - The address of the TeamCity server
 - __username__ - The username of the TeamCity administrator
