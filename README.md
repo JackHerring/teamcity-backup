@@ -4,28 +4,29 @@
 
 ## The Elevator Pitch
 
-If you are using [TeamCity](https://www.jetbrains.com/teamcity/), are you sure that you continously are backing up all your projects and their settins? If not, perhaps I can help you.
+If you are using [TeamCity from JetBrains](https://www.jetbrains.com/teamcity/), are you sure that you continuously are backing up all your projects and their settings? If not, perhaps I can help you.
 
-What if I told you that you could run the backup process as any other project within TeamCity. By dogfooding the backup to TeamCity, all information is kept within the same system. The history of the backups is right there, within the same system you are backing up.
+What if I told you that you can run the backup process as any other project within TeamCity. By dogfooding the backup to TeamCity, all information is kept within the same system, and the backup history is as clearly visualized as your continuous deliveries.
 
 Pretty smart huh?
 
-## Usage
+## Configuration
 
-I've created a small console application that is capable of telling TeamCity to perform a backup by means of using the official [REST API](https://confluence.jetbrains.com/display/TCD8/REST+API#RESTAPI-DataBackup).
+I've created a small console application that is capable of triggering TeamCity to perform a backup by means of using the official [REST API](https://confluence.jetbrains.com/display/TCD8/REST+API#RESTAPI-DataBackup).
 
-Lets first take a look at the options you have for performing a backup using the console application.
+Lets take a look at the options you have for performing a backup.
 
 ```dos
 C:\>TeamCityBackup.exe /?
 TeamCity Backup  version 1.0.3.0
-Copyright © FantasticFiasco 2014
+Copyright © FantasticFiasco 2014-2016
 
 Usage:
-   TeamCityBackup /server=url /username=value /password=value /filename=file
-     [/backupdir=dir] [/maxbackupcount=value] [/addtimestamp=true|false]
-     [/includeconfigs=true|false] [/includedatabase=true|false]
-     [/includebuildlogs=true|false] [/includepersonalchanges=true|false]
+   TeamCityBackup /server=url /username=value /password=value
+     [/backupdir=dir] [/filename=file] [/maxbackupcount=value]
+     [/addtimestamp=true|false] [/includeconfigs=true|false]
+     [/includedatabase=true|false] [/includebuildlogs=true|false]
+     [/includepersonalchanges=true|false]
 
 Options:
    /?, /h, /help                Displays this help text.
@@ -36,6 +37,7 @@ Options:
                                 wish to make sure that the number of
                                 backups doesn't exceed maxbackupcount.
    /filename, /f                The prefix of the backup file name.
+                                The default value is 'TeamCity_Backup'.
    /includebuildlogs            Whether to include build
                                 logs. Default value is true.
    /includeconfigs              Whether to include configuration.
@@ -52,10 +54,16 @@ Options:
 
 ```
 
-As you can see there is support for a lot of configuration, but fear not, only four parameters are mandatory.
+Of these options only three are mandatory:
 
-Here is a simple example of a command that would perform a backup of TeamCity server located on *www.myteamcityserver.com* using the credentials of the user *teamcity_user*. The backup files would be prefixed with *TeamCity_Backup* and stored in a subdirectory of the TeamCity data path, called *backup*.
+- __server__ - The address of the TeamCity server
+- __username__ - The username of the TeamCity administrator
+- __password__ - The password of the TeamCity administrator
+
+## Basic Example
+
+Here is a basic example of a command that would perform a backup of a TeamCity server located on *www.myteamcityserver.com* using the credentials of the TeamCity administrator *teamcity_user*.
 
 ```dos
-C:\>TeamCityBackup.exe /username=teamcity_user /password=password /server=www.myteamcityserver.com /filename=TeamCity_Backup /backupdir=%env.TEAMCITY_DATA_PATH%\backup
+C:\>TeamCityBackup.exe /server=www.myteamcityserver.com /username=teamcity_user /password=password
 ```
