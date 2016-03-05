@@ -4,7 +4,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/f6gu28t5jagxj3pv/branch/master?svg=true)](https://ci.appveyor.com/project/FantasticFiasco/teamcity-backup/branch/master)
 
-## The Elevator Pitch
+## The elevator pitch
 
 If you are using [TeamCity from JetBrains](https://www.jetbrains.com/teamcity/), are you sure that you continuously are backing up all your projects and their settings?
 
@@ -56,10 +56,28 @@ Out of these options only three are mandatory:
 - __username__ - The username of a TeamCity administrator
 - __password__ - The password of a TeamCity administrator
 
-## Basic Example
+## Basic example
 
 This command would perform a backup of a TeamCity server located on *www.myteamcityserver.com* using the credentials of the TeamCity administrator *teamcity_user*.
 
 ```dos
 C:\>TeamCityBackup.exe /server=www.myteamcityserver.com /username=teamcity_user /password=password
 ```
+
+## Setting up a TeamCity project
+
+The following steps describe how one would create a TeamCity project with the responsibility to backup the TeamCity server once every week. It assumes that you are willing to fork the GitHub repository. If you aren't, you can download the latest release, check it into your version control system and adapt the steps to your new scenario.
+
+1. Fork this GitHub repository.
+1. Create a new TeamCity project and name it `TeamCity Backup`.
+1. Add a VCS root that points to your forked GitHub repository.
+1. Add a scheduled trigger that is configured to occur once a week.
+1. Add a *Visual Studio (sln)* build step with the following configuration:
+  - Solution file path: `src/TeamCityBackup.sln`
+  - Targets: `Rebuild`
+  - Configuration: `Release`
+1. Add a *Command Line* build step with the following configuration:
+  - Command executable: `src/TeamCityBackup/bin/Release/TeamCityBackup.exe`
+  - Command parameters: `/server=www.myteamcityserver.com /username=teamcity_user /password=password`
+
+That's it! You now have a working backup solution that will backup your TeamCity server once a week.
