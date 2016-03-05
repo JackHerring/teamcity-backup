@@ -1,5 +1,7 @@
 # TeamCity Backup
 
+![Logo](design/Logo_300x300.png)
+
 [![Build status](https://ci.appveyor.com/api/projects/status/f6gu28t5jagxj3pv/branch/master?svg=true)](https://ci.appveyor.com/project/FantasticFiasco/teamcity-backup/branch/master)
 
 ## The Elevator Pitch
