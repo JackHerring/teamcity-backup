@@ -18,6 +18,7 @@ namespace TeamCityBackup
 
         public Options()
         {
+            FileName = "TeamCity_Backup";
             MaxBackupCount = 10;
             AddTimestamp = true;
             IncludeConfigs = true;
@@ -80,7 +81,7 @@ namespace TeamCityBackup
         [CommandLineOption(
             Name = "filename",
             Aliases = "f",
-            Description = "The prefix of the backup file name.",
+            Description = "The prefix of the backup file name. The default value is 'TeamCity_Backup'.",
             MinOccurs = 1)]
         public string FileName
         {

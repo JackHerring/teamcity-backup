@@ -47,10 +47,11 @@ namespace TeamCityBackup
         private static void PrintUsage()
         {
             Console.WriteLine("Usage:");
-            Console.WriteLine("   {0} /server=url /username=value /password=value /filename=file", FileNameWithoutExtension);
-            Console.WriteLine("     [/backupdir=dir] [/maxbackupcount=value] [/addtimestamp=true|false]");
-            Console.WriteLine("     [/includeconfigs=true|false] [/includedatabase=true|false]");
-            Console.WriteLine("     [/includebuildlogs=true|false] [/includepersonalchanges=true|false]");
+            Console.WriteLine("   {0} /server=url /username=value /password=value", FileNameWithoutExtension);
+            Console.WriteLine("     [/backupdir=dir] [/filename=file] [/maxbackupcount=value]");
+            Console.WriteLine("     [/addtimestamp=true|false] [/includeconfigs=true|false]");
+            Console.WriteLine("     [/includedatabase=true|false] [/includebuildlogs=true|false]");
+            Console.WriteLine("     [/includepersonalchanges=true|false]");
             Console.WriteLine();
             Console.WriteLine(parser.UsageInfo.GetOptionsAsString(TextWidth));
         }
