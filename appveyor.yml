@@ -41,7 +41,7 @@ build:
 #---------------------------------#
 artifacts:
 - path: 'src\TeamCityBackup\bin\Release'
-  name: Release
+  name: 'TeamCity_Backup_{version}'
   type: zip
 
 
