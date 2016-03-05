@@ -14,7 +14,7 @@ Pretty smart huh?
 
 ## Configuration
 
-I've created a small console application that is capable of triggering TeamCity to perform a backup by means of using the official [REST API](https://confluence.jetbrains.com/display/TCD8/REST+API#RESTAPI-DataBackup).
+I've created a small console application that is capable of triggering TeamCity to perform a backup by means of using the [official REST API](https://confluence.jetbrains.com/display/TCD8/REST+API#RESTAPI-DataBackup).
 
 Lets take a look at the options you have for performing a backup.
 
