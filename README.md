@@ -6,7 +6,7 @@
 
 If you are using [TeamCity from JetBrains](https://www.jetbrains.com/teamcity/), are you sure that you continuously are backing up all your projects and their settings?
 
-If not, perhaps I can help you.
+If not, perhaps I can help you?
 
 What if I told you that you can run the backup process as any other project within TeamCity. By dogfooding the backup to TeamCity, all information is kept within the same system, and the backup history is as clearly visualized as your continuous deliveries.
 
