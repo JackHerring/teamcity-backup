@@ -34,12 +34,6 @@ namespace TeamCityBackup
                 return -1;
             }
 
-            // Clean backup directory
-            if (!Clean(options))
-            {
-                return -1;
-            }
-
             // Run backup
             return Backup(options) ? 0 : -1;
         }
@@ -48,10 +42,9 @@ namespace TeamCityBackup
         {
             Console.WriteLine("Usage:");
             Console.WriteLine("   {0} /server=url /username=value /password=value", FileNameWithoutExtension);
-            Console.WriteLine("     [/backupdir=dir] [/filename=file] [/maxbackupcount=value]");
-            Console.WriteLine("     [/addtimestamp=true|false] [/includeconfigs=true|false]");
-            Console.WriteLine("     [/includedatabase=true|false] [/includebuildlogs=true|false]");
-            Console.WriteLine("     [/includepersonalchanges=true|false]");
+            Console.WriteLine("     [/filename=file] [/addtimestamp=true|false]");
+            Console.WriteLine("     [/includeconfigs=true|false] [/includedatabase=true|false]");
+            Console.WriteLine("     [/includebuildlogs=true|false] [/includepersonalchanges=true|false]");
             Console.WriteLine();
             Console.WriteLine(parser.UsageInfo.GetOptionsAsString(TextWidth));
         }
@@ -59,16 +52,6 @@ namespace TeamCityBackup
         private static void PrintError()
         {
             Console.WriteLine(parser.UsageInfo.GetErrorsAsString(TextWidth));
-        }
-
-        private static bool Clean(Options options)
-        {
-            if (string.IsNullOrWhiteSpace(options.BackupDirectory))
-            {
-                return true;
-            }
-
-            return new Clean(options).Run();
         }
 
         private static bool Backup(Options options)

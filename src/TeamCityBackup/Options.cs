@@ -1,5 +1,4 @@
-﻿using System;
-using Plossum.CommandLine;
+﻿using Plossum.CommandLine;
 
 namespace TeamCityBackup
 {
@@ -13,13 +12,10 @@ namespace TeamCityBackup
         private string username;
         private string password;
         private string fileName;
-        private string backupDirectory;
-        private int maxBackupCount;
 
         public Options()
         {
             FileName = "TeamCity_Backup";
-            MaxBackupCount = 10;
             AddTimestamp = true;
             IncludeConfigs = true;
             IncludeDatabase = true;
@@ -51,7 +47,7 @@ namespace TeamCityBackup
         [CommandLineOption(
             Name = "username",
             Aliases = "u",
-            Description = "The username of the TeamCity administrator.",
+            Description = "The username of a TeamCity administrator.",
             MinOccurs = 1)]
         public string Username
         {
@@ -66,7 +62,7 @@ namespace TeamCityBackup
         [CommandLineOption(
             Name = "password",
             Aliases = "p",
-            Description = "The password of the TeamCity administrator.",
+            Description = "The password of a TeamCity administrator.",
             MinOccurs = 1)]
         public string Password
         {
@@ -90,32 +86,6 @@ namespace TeamCityBackup
             {
                 AssertIsNotNullOrWhiteSpace(value, "The file name must not be empty.");
                 fileName = value;
-            }
-        }
-
-        [CommandLineOption(
-            Name = "backupdir",
-            Description = "The directory where backups are stored. Specify this property if you wish to make sure that the number of backups doesn't exceed maxbackupcount.")]
-        public string BackupDirectory
-        {
-            get { return backupDirectory; }
-            set
-            {
-                AssertIsNotNullOrWhiteSpace(value, "The backup directory must not be empty.");
-                backupDirectory = value;
-            }
-        }
-
-        [CommandLineOption(
-            Name = "maxbackupcount",
-            Description = "The maximum number of backups stored at the backup directory. The default value is 10.")]
-        public int MaxBackupCount
-        {
-            get { return maxBackupCount; }
-            set
-            {
-                AssertNumber(value, count => count >= 1, "Maximum number of backups must be at least one.");
-                maxBackupCount = value;
             }
         }
 
@@ -152,12 +122,6 @@ namespace TeamCityBackup
         private static void AssertIsNotNullOrWhiteSpace(string value, string errorMessage)
         {
             if (string.IsNullOrWhiteSpace(value))
-                throw new InvalidOptionValueException(errorMessage);
-        }
-
-        private static void AssertNumber(int value, Predicate<int> validity, string errorMessage)
-        {
-            if (!validity(value))
                 throw new InvalidOptionValueException(errorMessage);
         }
     }

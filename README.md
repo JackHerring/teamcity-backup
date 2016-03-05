@@ -27,19 +27,14 @@ Copyright © FantasticFiasco 2014-2016
 
 Usage:
    TeamCityBackup /server=url /username=value /password=value
-     [/backupdir=dir] [/filename=file] [/maxbackupcount=value]
-     [/addtimestamp=true|false] [/includeconfigs=true|false]
-     [/includedatabase=true|false] [/includebuildlogs=true|false]
-     [/includepersonalchanges=true|false]
+     [/filename=file] [/addtimestamp=true|false]
+     [/includeconfigs=true|false] [/includedatabase=true|false]
+     [/includebuildlogs=true|false] [/includepersonalchanges=true|false]
 
 Options:
    /?, /h, /help                Displays this help text.
    /addtimestamp                Whether backup file name should be suffixed
                                 with a timestamp. Default value is true.
-   /backupdir                   The directory where backups are
-                                stored. Specify this property if you
-                                wish to make sure that the number of
-                                backups doesn't exceed maxbackupcount.
    /filename, /f                The prefix of the backup file name.
                                 The default value is 'TeamCity_Backup'.
    /includebuildlogs            Whether to include build
@@ -50,23 +45,20 @@ Options:
                                 Default value is true.
    /includepersonalchanges      Whether to include personal
                                 changes. Default value is true.
-   /maxbackupcount              The maximum number of backups stored at the
-                                backup directory. The default value is 10.
-   /password, /p                The password of the TeamCity administrator.
+   /password, /p                The password of a TeamCity administrator.
    /server, /s                  The address of the TeamCity server.
-   /username, /u                The username of the TeamCity administrator.
-
+   /username, /u                The username of a TeamCity administrator.
 ```
 
 Out of these options only three are mandatory:
 
 - __server__ - The address of the TeamCity server
-- __username__ - The username of the TeamCity administrator
-- __password__ - The password of the TeamCity administrator
+- __username__ - The username of a TeamCity administrator
+- __password__ - The password of a TeamCity administrator
 
 ## Basic Example
 
-Here is a basic example of a command that would perform a backup of a TeamCity server located on *www.myteamcityserver.com* using the credentials of the TeamCity administrator *teamcity_user*.
+This command would perform a backup of a TeamCity server located on *www.myteamcityserver.com* using the credentials of the TeamCity administrator *teamcity_user*.
 
 ```dos
 C:\>TeamCityBackup.exe /server=www.myteamcityserver.com /username=teamcity_user /password=password
