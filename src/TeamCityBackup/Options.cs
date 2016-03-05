@@ -77,8 +77,7 @@ namespace TeamCityBackup
         [CommandLineOption(
             Name = "filename",
             Aliases = "f",
-            Description = "The prefix of the backup file name. The default value is 'TeamCity_Backup'.",
-            MinOccurs = 1)]
+            Description = "The prefix of the backup file name. The default value is 'TeamCity_Backup'.")]
         public string FileName
         {
             get { return fileName; }
