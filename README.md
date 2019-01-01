@@ -23,7 +23,7 @@ Lets take a look at the options you have for performing a backup.
 ```dos
 C:\>TeamCityBackup.exe /?
 TeamCity Backup  version 1.0.3.0
-Copyright © FantasticFiasco 2014-2018
+Copyright © FantasticFiasco 2014-2019
 
 Usage:
    TeamCityBackup /server=url /username=value /password=value

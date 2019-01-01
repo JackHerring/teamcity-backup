@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("FantasticFiasco")]
 [assembly: AssemblyProduct("TeamCity Backup")]
-[assembly: AssemblyCopyright("Copyright © FantasticFiasco 2014-2018")]
+[assembly: AssemblyCopyright("Copyright © FantasticFiasco 2014-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
